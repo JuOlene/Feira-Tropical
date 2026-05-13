@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIRA TROPICAL | Alma & Estilo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">FEIRA<span>TROPICAL</span></a>
+            <div class="nav-toggle" id="nav-toggle">☰</div>
+            <ul class="nav-list" id="nav-menu">
+                <li><a href="#home" class="nav-link" onclick="resetToHome()">🥭 Início</a></li>
+                <li><a href="#sobre" class="nav-link" onclick="resetToHome()">🌿 Sobre a Marca</a></li>
+                <li><a href="#quiz-wrapper" class="nav-link">🎯 Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (KEPT UNCHANGED) -->
+        <section class="hero" id="home">
+            <div class="floating-container">
+                <span class="float-item i1 f-lg">🥭</span>
+                <span class="float-item i2 f-md">👗</span>
+                <span class="float-item i3 f-lg">🌿</span>
+                <span class="float-item i4 f-sm">🍍</span>
+                <span class="float-item i5 f-md">🍓</span>
+                <span class="float-item i6 f-lg">🍃</span>
+                <span class="float-item i7 f-sm">🕶️</span>
+            </div>
+            <div class="container" id="hero-content">
+                <h1 class="hero-title">DESCUBRA SUA <br> <span class="highlight-wine-solid">ESSÊNCIA</span> <br> TROPICAL.</h1>
+                <p style="font-family: 'Outfit'; font-size: 1.5rem; max-width: 600px; margin: 0 auto 3rem; color: var(--wine-burgundy); font-weight: 600;">Uma jornada interativa entre moda, personalidade e as cores que traduzem quem você é.</p>
+                <div class="hero-cta">
+                    <input type="text" id="user-name-hero" placeholder="Como te chamamos?" class="hero-input" style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); border: 2px solid var(--wine-burgundy); padding: 1.25rem 2rem; border-radius: 5rem; font-family: 'Outfit'; font-weight: 700; color: var(--wine-burgundy); outline: none; margin-right: 1rem; min-width: 250px;">
+                    <button class="button-hero" onclick="startQuizFromHero()">Iniciar Quiz &rarr;</button>
+                </div>
+            </div>
+
+            <!-- QUIZ INTEGRADO NA HERO -->
+            <div id="quiz-wrapper" class="container" style="display: none; position: relative; z-index: 20;">
+                <div id="quiz-content" style="display: none;">
+                    <div class="progress-bar" style="height: 4px; background: rgba(0,0,0,0.1); margin-bottom: 3rem; border-radius: 10px; overflow: hidden;"><div class="progress-bar-fill" id="progress-inner" style="height: 100%; background: #6a0dad; width: 0%; transition: 0.6s;"></div></div>
+                    <h2 id="quiz-question" style="font-family: 'Bebas Neue'; font-size: 4rem; color: var(--wine-burgundy); margin-bottom: 3rem; text-align: center;">O que mais combina com você?</h2>
+                    <div id="quiz-options" class="quiz-options-list"></div>
+                </div>
+                <div id="quiz-result" style="display: none;"></div>
+            </div>
+        </section>
+
+        <!-- REFORMULATED SOBRE A MARCA SECTION -->
+        <section class="concept container" id="sobre">
+            <div class="concept-intro-box">
+                <div class="concept-text-main">
+                    <h2 style="font-family: 'Bebas Neue'; font-size: 6rem; color: var(--wine-burgundy); line-height: 0.9; margin-bottom: 2rem;">MAIS QUE MODA, <span class="outlined">UMA JORNADA</span>.</h2>
+                    <p style="font-size: 1.3rem; line-height: 1.6; color: #444;">A Feira Tropical nasceu do desejo de conectar a alma brasileira com a expressão pessoal. Acreditamos que cada fruta carrega uma energia, e cada pessoa carrega um estilo que espera ser descoberto.</p>
+                </div>
+                <div class="concept-visual-main">🍊</div>
+            </div>
+
+            <div class="concept-story-grid">
+                <div class="story-item">
+                    <span class="story-icon">🌴</span>
+                    <h3>Brasilidade Viva</h3>
+                    <p>Nossas raízes estão no sol, na terra e na explosão de cores da nossa natureza. Celebramos o que é nosso de forma contemporânea e autêntica.</p>
+                </div>
+                <div class="story-item">
+                    <span class="story-icon">🎨</span>
+                    <h3>Curadoria de Alma</h3>
+                    <p>O quiz não é apenas um teste; é uma ferramenta de autoconhecimento. Traduzimos sua energia em uma curadoria de moda personalizada.</p>
+                </div>
+                <div class="story-item">
+                    <span class="story-icon">🌿</span>
+                    <h3>Tropicalismo Urbano</h3>
+                    <p>Unimos o orgânico ao moderno. Nossa proposta é trazer o frescor do pomar para o asfalto, criando um estilo que respira e vive.</p>
+                </div>
+                <div class="story-item">
+                    <span class="story-icon">💎</span>
+                    <h3>Identidade Única</h3>
+                    <p>Ninguém é igual a ninguém. Cada resultado da Feira Tropical é um convite para você abraçar sua fruta-arquétipo com orgulho e estilo.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

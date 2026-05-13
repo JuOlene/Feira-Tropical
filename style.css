@@ -189,9 +189,11 @@
 .i6 { top: 55%; right: 5%; animation-delay: 1.5s; }
 .i7 { bottom: 10%; right: 40%; animation-delay: 5s; }
 
-/* HAMBURGER MENU */
+/* HAMBURGER MENU & MOBILE RESPONSIVENESS */
 .nav-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--wine-burgundy); }
+
 @media screen and (max-width: 768px) {
+    /* Navigation */
     .nav-toggle { display: block; }
     .nav-list {
         position: fixed; top: 4.5rem; right: -100%; width: 80%; height: 100vh;
@@ -200,7 +202,42 @@
         z-index: 1000;
     }
     .nav-list.active { right: 0; }
-    .hero-title { font-size: 4.5rem; }
+
+    /* Hero Section */
+    .hero { padding: 6rem 1rem 3rem 1rem; }
+    .hero-title { font-size: 3.5rem; }
+    .hero-cta { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+    .hero-input { margin-right: 0 !important; width: 100%; min-width: auto !important; box-sizing: border-box; }
+    .button-hero { font-size: 1.5rem; padding: 1rem 2rem; width: 100%; }
+
+    /* Floating Items Scale Down */
+    .f-lg { font-size: 3rem; }
+    .f-md { font-size: 2rem; }
+    .f-sm { font-size: 1.5rem; }
+
+    /* Concept Section */
+    .concept { padding: 4rem 1rem; }
+    .concept-intro-box { flex-direction: column; gap: 2rem; margin-bottom: 4rem; text-align: center; }
+    .concept-text-main h2 { font-size: 3.5rem !important; }
+    .concept-visual-main { font-size: 6rem; padding: 2rem; border-width: 3px; margin: 0 auto; }
+    .concept-story-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .story-item { padding: 1.5rem; }
+    .story-item:nth-child(even) { transform: none; }
+
+    /* Quiz Section */
+    #quiz-question { font-size: 2.5rem !important; margin-bottom: 2rem !important; }
+    .quiz-list-item { padding: 1rem; gap: 1rem; font-size: 1rem; }
+    .button-next { padding: 1rem 2rem; font-size: 1.5rem; width: 100%; }
+
+    /* Result Section */
+    .result-card-magazine { padding: 1.5rem; box-shadow: 10px 10px 0 var(--wine-burgundy); }
+    .looks-grid-editorial { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .look-item-editorial { font-size: 2.5rem; }
+}
+
+@media screen and (max-width: 480px) {
+    .looks-grid-editorial { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.8rem; }
 }
 
 /* EDITORIAL RESULT CARDS */

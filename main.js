@@ -127,7 +127,7 @@ function resetToHome() {
 }
 
 function startQuizFromHero() {
-    userName = document.getElementById('user-name-hero').value || "Tropicaler";
+    userName = document.getElementById('user-name-hero')?.value || "Tropicaler";
     
     // Swap content instantly in the Hero area
     document.getElementById('hero-content').style.display = 'none';
@@ -136,6 +136,12 @@ function startQuizFromHero() {
     // Hide About section for focused mode
     const aboutSection = document.getElementById('sobre');
     if (aboutSection) aboutSection.style.display = 'none';
+
+    // Hide header and floating elements for immersive quiz
+    const header = document.querySelector('.header');
+    if (header) header.style.display = 'none';
+    const floating = document.querySelector('.floating-container');
+    if (floating) floating.style.display = 'none';
     
     setTimeout(() => {
         document.getElementById('quiz-content').style.display = 'block';

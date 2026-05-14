@@ -281,9 +281,19 @@ html, body {
 
 /* EDITORIAL RESULT CARDS */
 .result-card-magazine {
-    background: #fff; border: 0.2rem solid var(--wine-burgundy);
-    padding: 1.5rem; position: relative; max-width: 90vw;
-    margin: 0 auto; box-shadow: 10px 10px 0 var(--wine-burgundy);
+    background: #fff; 
+    border: none;
+    padding: 1rem; 
+    position: relative; 
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .result-tag-editorial {
@@ -466,7 +476,16 @@ html, body {
     .quiz-list-item { padding: 1.2rem 2rem; }
     .button-next { padding: 1.2rem 4rem; width: auto; }
     
-    .result-card-magazine { padding: 4rem; box-shadow: 20px 20px 0 var(--wine-burgundy); }
+    .result-card-magazine { 
+        padding: 4rem; 
+        box-shadow: 20px 20px 0 var(--wine-burgundy); 
+        width: 90vw;
+        height: auto;
+        max-width: 800px;
+        max-height: 85vh;
+        border-radius: 1rem;
+        border: 0.2rem solid var(--wine-burgundy);
+    }
     .looks-grid-editorial { grid-template-columns: repeat(3, 1fr); }
     .look-item-editorial { font-size: 4rem; }
 }

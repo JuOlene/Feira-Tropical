@@ -233,7 +233,7 @@ function showResult() {
 
     resultEl.innerHTML = `
         <div class="result-container-immersive ${fruit.theme}" style="text-align: center;">
-            <div class="result-card-magazine" style="max-height: 80vh; overflow-y: auto; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 90%; max-width: 800px; border-radius: 1rem;">
+            <div class="result-card-magazine">
                 <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: clamp(0.8rem, 2vw, 1rem); margin-bottom: 0.5rem;">Olá, ${userName}! Sua essência é</p>
                 <h2 style="font-family: 'Bebas Neue'; font-size: clamp(3rem, 12vw, 6rem); text-transform: uppercase; line-height: 1; margin: 0.5rem 0;">${fruit.name}</h2>
                 <div style="margin: 1rem 0;">${fruit.tags.map(t => `<span class="result-tag-editorial">${t}</span>`).join('')}</div>

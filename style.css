@@ -8,17 +8,17 @@
 .header {
     background: rgba(245, 245, 220, 0.8);
     backdrop-filter: blur(15px);
-    border-bottom: 3px solid var(--wine-burgundy);
-    padding: 1.25rem 0;
+    border-bottom: 0.2rem solid var(--wine-burgundy);
+    padding: 1rem 5vw;
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
     font-weight: 900;
     font-style: italic;
     color: var(--wine-burgundy);
-    text-transform: none; /* Serifs often look better in mixed case or specific casing */
+    text-transform: none;
     letter-spacing: -1px;
 }
 
@@ -28,15 +28,37 @@
     margin-left: 2px;
 }
 
+.nav-toggle { 
+    display: block; 
+    font-size: 2rem; 
+    cursor: pointer; 
+    color: var(--wine-burgundy); 
+}
+
 .nav-list {
+    position: fixed; 
+    top: 4.5rem; 
+    right: -100%; 
+    width: 80vw; 
+    height: 100vh;
+    background: var(--bg-beige); 
     display: flex;
-    gap: 2rem;
+    flex-direction: column; 
     align-items: center;
+    padding-top: 5vh; 
+    transition: 0.4s; 
+    border-left: 0.2rem solid var(--wine-burgundy);
+    z-index: 1000;
+    gap: 2rem;
+}
+
+.nav-list.active { 
+    right: 0; 
 }
 
 .nav-link {
     font-family: 'Bebas Neue', cursive;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     letter-spacing: 1.5px;
     padding: 0.6rem 1.2rem;
     border-radius: 5rem;
@@ -56,48 +78,50 @@
 
 /*=============== REFORMULATED ABOUT SECTION ===============*/
 .concept {
-    padding: 10rem 0;
+    padding: 10vh 5vw;
     background-color: #fffdf5;
 }
 
 .concept-intro-box {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 4rem;
-    margin-bottom: 8rem;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
 }
 
-.concept-text-main {
-    flex: 1.5;
+.concept-text-main h2 {
+    font-size: clamp(3rem, 8vw, 6rem) !important;
 }
 
 .concept-visual-main {
-    flex: 1;
-    font-size: 15rem;
+    font-size: clamp(6rem, 20vw, 15rem);
     text-align: center;
     background: var(--bg-beige);
-    padding: 4rem;
-    border: 5px solid var(--wine-burgundy);
+    padding: 5vw;
+    border: 0.3rem solid var(--wine-burgundy);
     border-radius: 50% 50% 0 50%;
     transform: rotate(-5deg);
+    margin: 0 auto;
 }
 
 .concept-story-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
 
 .story-item {
     position: relative;
-    padding: 3rem;
-    border-left: 5px solid var(--wine-burgundy);
+    padding: 1.5rem;
+    border-left: 0.3rem solid var(--wine-burgundy);
     background: rgba(245, 245, 220, 0.3);
 }
 
 .story-item h3 {
     font-family: 'Bebas Neue';
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 1rem;
     color: var(--wine-burgundy);
 }
@@ -107,11 +131,6 @@
     position: absolute;
     top: -20px;
     right: 20px;
-}
-
-/* Staggered effect for items */
-.story-item:nth-child(even) {
-    transform: translateY(40px);
 }
 
 /*=============== DYNAMIC FRUIT THEMES (23 FRUITS) ===============*/
@@ -147,7 +166,7 @@
 
 .result-container-immersive .result-card-magazine {
     border-color: var(--res-txt);
-    color: #333; /* Keep text inside card readable */
+    color: #333; 
 }
 
 .result-container-immersive .result-tag-editorial {
@@ -156,11 +175,60 @@
 }
 
 /*=============== CORE LAYOUT & INTERACTIVE ===============*/
-.hero { position: relative; padding: 12rem 0; min-height: 100vh; background: var(--bg-beige); text-align: center; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
-.hero-title { font-family: 'Bebas Neue'; font-size: 8rem; line-height: 0.85; margin-bottom: 2rem; position: relative; z-index: 10; }
-.highlight-wine-solid { color: var(--wine-burgundy) !important; -webkit-text-fill-color: var(--wine-burgundy) !important; }
-.button-hero { background: linear-gradient(135deg, #FFB703, #FF8C00); padding: 1.5rem 3.5rem; border-radius: 5rem; border: none; font-family: 'Bebas Neue'; font-size: 2rem; cursor: pointer; color: #fff; position: relative; z-index: 10; transition: 0.3s; }
-.button-hero:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.hero { 
+    position: relative; 
+    padding: 10vh 5vw 5vh 5vw; 
+    min-height: 100vh; 
+    background: var(--bg-beige); 
+    text-align: center; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+.hero-title { 
+    font-family: 'Bebas Neue'; 
+    font-size: clamp(3rem, 12vw, 8rem); 
+    line-height: 0.85; 
+    margin-bottom: 2vh; 
+    position: relative; 
+    z-index: 10; 
+}
+.highlight-wine-solid { 
+    color: var(--wine-burgundy) !important; 
+    -webkit-text-fill-color: var(--wine-burgundy) !important; 
+}
+.hero-cta { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    align-items: center; 
+    width: 100%;
+}
+.hero-input { 
+    margin-right: 0 !important; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.button-hero { 
+    background: linear-gradient(135deg, #FFB703, #FF8C00); 
+    padding: 1rem 2rem; 
+    border-radius: 5rem; 
+    border: none; 
+    font-family: 'Bebas Neue'; 
+    font-size: clamp(1.5rem, 4vw, 2rem); 
+    cursor: pointer; 
+    color: #fff; 
+    position: relative; 
+    z-index: 10; 
+    transition: 0.3s; 
+    width: 100%;
+}
+.button-hero:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+}
 
 .floating-container { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
 .float-item {
@@ -171,9 +239,9 @@
     z-index: 1;
 }
 
-.f-lg { font-size: 6rem; }
-.f-md { font-size: 4rem; }
-.f-sm { font-size: 2.5rem; }
+.f-lg { font-size: clamp(3rem, 8vw, 6rem); }
+.f-md { font-size: clamp(2rem, 5vw, 4rem); }
+.f-sm { font-size: clamp(1.5rem, 4vw, 2.5rem); }
 
 @keyframes floating {
     0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
@@ -189,78 +257,28 @@
 .i6 { top: 55%; right: 5%; animation-delay: 1.5s; }
 .i7 { bottom: 10%; right: 40%; animation-delay: 5s; }
 
-/* HAMBURGER MENU & MOBILE RESPONSIVENESS */
-.nav-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--wine-burgundy); }
-
-@media screen and (max-width: 768px) {
-    /* Navigation */
-    .nav-toggle { display: block; }
-    .nav-list {
-        position: fixed; top: 4.5rem; right: -100%; width: 80%; height: 100vh;
-        background: var(--bg-beige); flex-direction: column; align-items: center;
-        padding-top: 5rem; transition: 0.4s; border-left: 3px solid var(--wine-burgundy);
-        z-index: 1000;
-    }
-    .nav-list.active { right: 0; }
-
-    /* Hero Section */
-    .hero { padding: 6rem 1rem 3rem 1rem; }
-    .hero-title { font-size: 3.5rem; }
-    .hero-cta { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-    .hero-input { margin-right: 0 !important; width: 100%; min-width: auto !important; box-sizing: border-box; }
-    .button-hero { font-size: 1.5rem; padding: 1rem 2rem; width: 100%; }
-
-    /* Floating Items Scale Down */
-    .f-lg { font-size: 3rem; }
-    .f-md { font-size: 2rem; }
-    .f-sm { font-size: 1.5rem; }
-
-    /* Concept Section */
-    .concept { padding: 4rem 1rem; }
-    .concept-intro-box { flex-direction: column; gap: 2rem; margin-bottom: 4rem; text-align: center; }
-    .concept-text-main h2 { font-size: 3.5rem !important; }
-    .concept-visual-main { font-size: 6rem; padding: 2rem; border-width: 3px; margin: 0 auto; }
-    .concept-story-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .story-item { padding: 1.5rem; }
-    .story-item:nth-child(even) { transform: none; }
-
-    /* Quiz Section */
-    #quiz-question { font-size: 2.5rem !important; margin-bottom: 2rem !important; }
-    .quiz-list-item { padding: 1rem; gap: 1rem; font-size: 1rem; }
-    .button-next { padding: 1rem 2rem; font-size: 1.5rem; width: 100%; }
-
-    /* Result Section */
-    .result-card-magazine { padding: 1.5rem; box-shadow: 10px 10px 0 var(--wine-burgundy); }
-    .looks-grid-editorial { grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .look-item-editorial { font-size: 2.5rem; }
-}
-
-@media screen and (max-width: 480px) {
-    .looks-grid-editorial { grid-template-columns: 1fr; }
-    .hero-title { font-size: 2.8rem; }
-}
 
 /* EDITORIAL RESULT CARDS */
 .result-card-magazine {
-    background: #fff; border: 3px solid var(--wine-burgundy);
-    padding: 4rem; position: relative; max-width: 900px;
-    margin: 0 auto; box-shadow: 20px 20px 0 var(--wine-burgundy);
+    background: #fff; border: 0.2rem solid var(--wine-burgundy);
+    padding: 1.5rem; position: relative; max-width: 90vw;
+    margin: 0 auto; box-shadow: 10px 10px 0 var(--wine-burgundy);
 }
 
 .result-tag-editorial {
-    display: inline-block; border: 2px solid var(--wine-burgundy);
-    padding: 0.5rem 1.5rem; font-family: 'Bebas Neue'; font-size: 1.2rem;
+    display: inline-block; border: 0.15rem solid var(--wine-burgundy);
+    padding: 0.5rem 1rem; font-family: 'Bebas Neue'; font-size: 1rem;
     margin: 0.5rem; color: var(--wine-burgundy);
 }
 
-.looks-grid-editorial { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.looks-grid-editorial { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
 .look-item-editorial {
     aspect-ratio: 3/4; background: var(--bg-beige); border: 1px solid var(--wine-burgundy);
-    display: flex; align-items: center; justify-content: center; font-size: 4rem; transition: 0.3s;
+    display: flex; align-items: center; justify-content: center; font-size: clamp(2.5rem, 8vw, 4rem); transition: 0.3s;
 }
 
 .quiz-section {
-    background: #1b3022 !important; /* Deep Forest Green */
+    background: #1b3022 !important; 
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -268,28 +286,34 @@
     transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+#quiz-question {
+    font-size: clamp(2.5rem, 8vw, 4rem) !important;
+    margin-bottom: 2rem !important;
+}
+
 .quiz-options-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 90vw;
     max-width: 600px;
     margin: 0 auto;
-    width: 100%;
 }
 
 .quiz-list-item {
     background: #fff;
     border: 2px solid #ddd;
-    padding: 1.2rem 2rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     cursor: pointer;
     transition: 0.3s;
     position: relative;
     border-radius: 0.5rem;
-    color: var(--wine-burgundy); /* Dark text for white bg */
+    color: var(--wine-burgundy); 
     font-weight: 700;
+    font-size: 1rem;
 }
 
 .quiz-list-item:hover:not(.disabled) {
@@ -314,7 +338,7 @@
 }
 
 .quiz-list-item.selected {
-    border-color: #6a0dad; /* Purple */
+    border-color: #6a0dad;
     background: rgba(106, 13, 173, 0.05);
 }
 
@@ -331,23 +355,24 @@
 }
 
 .button-next {
-    background: #0077b6; /* Blue */
+    background: #0077b6; 
     color: #fff;
-    padding: 1.2rem 4rem;
+    padding: 1rem 2rem;
     font-family: 'Bebas Neue';
-    font-size: 2rem;
+    font-size: 1.5rem;
     border: none;
     cursor: pointer;
     transition: 0.3s;
     opacity: 0.2;
     pointer-events: none;
     border-radius: 5rem;
+    width: 100%;
 }
 
 .button-next.active {
     opacity: 1;
     pointer-events: all;
-    background: #e63946; /* Red when active */
+    background: #e63946; 
     box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
 }
 
@@ -364,4 +389,58 @@
     margin: 0;
     overflow: hidden;
     transition: 0.8s ease;
+}
+
+/* DESKTOP STYLES (MIN-WIDTH: 768px) */
+@media screen and (min-width: 768px) {
+    .nav-toggle { display: none; }
+    
+    .nav-list {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        background: transparent;
+        padding-top: 0;
+        border-left: none;
+        gap: 2rem;
+    }
+    
+    .nav-link { font-size: 1.3rem; }
+    
+    .hero { padding: 12vh 0; }
+    
+    .hero-cta { 
+        flex-direction: row; 
+        width: auto; 
+        justify-content: center;
+    }
+    
+    .hero-input { width: auto; }
+    .button-hero { width: auto; padding: 1.5rem 3.5rem; }
+    
+    .concept { padding: 15vh 0; }
+    .concept-intro-box { 
+        flex-direction: row; 
+        gap: 4rem; 
+        text-align: left; 
+    }
+    
+    .concept-text-main { flex: 1.5; }
+    .concept-visual-main { 
+        flex: 1; 
+        padding: 4rem; 
+        border-width: 0.3rem;
+    }
+    
+    .concept-story-grid { grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+    .story-item { padding: 3rem; }
+    .story-item:nth-child(even) { transform: translateY(40px); }
+    
+    .quiz-list-item { padding: 1.2rem 2rem; }
+    .button-next { padding: 1.2rem 4rem; width: auto; }
+    
+    .result-card-magazine { padding: 4rem; box-shadow: 20px 20px 0 var(--wine-burgundy); }
+    .looks-grid-editorial { grid-template-columns: repeat(3, 1fr); }
+    .look-item-editorial { font-size: 4rem; }
 }

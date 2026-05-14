@@ -227,19 +227,28 @@ function showResult() {
     const fruit = fruitResults[winningFruit];
     const resultEl = document.getElementById('quiz-result');
     resultEl.style.display = 'block';
+    
+    // Assegura que estamos no topo
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
     resultEl.innerHTML = `
-        <div class="result-container-immersive ${fruit.theme}" style="padding: 8rem 0; text-align: center;">
-            <div class="container">
-                <div class="result-card-magazine">
-                    <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px;">Olá, ${userName}! Sua essência é</p>
-                    <h2 style="font-family: 'Bebas Neue'; font-size: 8rem; text-transform: uppercase; line-height: 1;">${fruit.name}</h2>
-                    <div style="margin: 2rem 0;">${fruit.tags.map(t => `<span class="result-tag-editorial">${t}</span>`).join('')}</div>
-                    <span style="font-size: 10rem; display: block; margin-bottom: 2rem;">${fruit.icon}</span>
-                    <p style="font-size: 1.5rem; max-width: 600px; margin: 0 auto 3rem; font-weight: 700; color: #444;">${fruit.desc}</p>
-                    <h4 style="font-family: 'Bebas Neue'; font-size: 2rem; margin-bottom: 2rem;">Curadoria de Look</h4>
-                    <div class="looks-grid-editorial">${["👗", "👞", "🕶️"].map(l => `<div class="look-item-editorial">${l}</div>`).join('')}</div>
+        <div class="result-container-immersive ${fruit.theme}" style="text-align: center;">
+            <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <div class="result-card-magazine" style="max-height: 80vh; overflow-y: auto; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 90%; border-radius: 1rem;">
+                    <p style="text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: clamp(0.8rem, 2vw, 1rem); margin-bottom: 0.5rem;">Olá, ${userName}! Sua essência é</p>
+                    <h2 style="font-family: 'Bebas Neue'; font-size: clamp(3rem, 12vw, 6rem); text-transform: uppercase; line-height: 1; margin: 0.5rem 0;">${fruit.name}</h2>
+                    <div style="margin: 1rem 0;">${fruit.tags.map(t => `<span class="result-tag-editorial">${t}</span>`).join('')}</div>
+                    <span style="font-size: clamp(4rem, 15vw, 6rem); display: block; margin-bottom: 1rem;">${fruit.icon}</span>
+                    <p style="font-size: clamp(1rem, 3vw, 1.2rem); max-width: 600px; margin: 0 auto 1.5rem; font-weight: 700; color: #444;">${fruit.desc}</p>
+                    
+                    <h4 style="font-family: 'Bebas Neue'; font-size: clamp(1.5rem, 5vw, 2rem); margin-bottom: 1rem; color: var(--wine-burgundy);">Tons da sua Personalidade</h4>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.5rem;">
+                        <div style="width: 45px; height: 45px; border-radius: 50%; background: var(--res-bg); border: 2px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+                        <div style="width: 45px; height: 45px; border-radius: 50%; background: var(--res-txt); border: 2px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+                        <div style="width: 45px; height: 45px; border-radius: 50%; background: var(--bg-beige); border: 2px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+                    </div>
                 </div>
-                <button class="button-hero" style="margin-top: 4rem; background: #000; color: #fff;" onclick="location.reload()">Recomeçar Jornada</button>
+                <button class="button-hero" style="margin-top: 2rem; background: #000; color: #fff; padding: 1rem 2rem; font-size: clamp(1.2rem, 4vw, 1.5rem); width: auto;" onclick="location.reload()">Recomeçar Jornada</button>
             </div>
         </div>
     `;
